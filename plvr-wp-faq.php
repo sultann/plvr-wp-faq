@@ -9,6 +9,7 @@
  * Author URI: https://pluginever.com/
  */
 
+if(!class_exists('PLVR_WP_FAQ')):
 class PLVR_WP_FAQ
 {
     /**
@@ -16,7 +17,6 @@ class PLVR_WP_FAQ
      */
     public function __construct()
     {
-
 
         $this->define_constants();
         $this->hooks();
@@ -115,7 +115,7 @@ class PLVR_WP_FAQ
         <?php if($title != ''): ?>
             <h2 class="plvr-faq-category-title"><?php echo $title; ?></h2>
         <?php endif;?>
-        <ul class="plvr-faq-list basic-version <?php echo implode(' ', $classes);?>">
+        <ul class="plvr-faq-list basic-version is-icon-left <?php echo implode(' ', $classes);?>">
             <?php if ($faq_query->have_posts()) : while ($faq_query->have_posts()) : $faq_query->the_post(); ?>
                 <?php include 'templates/content-loop.php'; ?>
             <?php endwhile; ?>
@@ -136,10 +136,6 @@ class PLVR_WP_FAQ
 
     }
 
-
-
-
-
 }
-
+endif;
 new PLVR_WP_FAQ();
